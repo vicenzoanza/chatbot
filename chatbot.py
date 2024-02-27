@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, request, jsonify
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -7,8 +8,16 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import Chroma
+from langchain_openai import OpenAI
 
-os.environ["OPENAI_API_KEY"] = "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"
+
+def cargar_configuracion():
+    with open('config.json') as f:
+        config = json.load(f)
+    return config
+
+config = cargar_configuracion()
+os.environ["openai_api_key"] = config['openai_api_key']
 
 app = Flask(__name__)
 
