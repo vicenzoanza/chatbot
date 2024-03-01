@@ -1,0 +1,1 @@
+![Diagrama de Flujo](/doc/chatbot.png)
