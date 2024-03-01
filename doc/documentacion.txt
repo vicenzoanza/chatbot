@@ -1,3 +1,3 @@
 Primero que nada, mi primera pregunta al tener que resolver esta prueba, fue como proporcionarle la informacion a la estructura rag para que pueda responder lo pedido por ustedes. Se me ocurrio resolverlo mediante scraping. Opte por hacerlo con selenium.
-Luego utilice Flask y Langchain para el procesamiento de lenguaje natural.
-Implemente un servidor Flask con rutas para manejar GET y POST.Utilizo Langchain para cargar informacion la cual fue extraida con selenium y construyo un sistema de recuperacion de informacion, luego configuro un modelo de respuesta utilizando ChatGpt-4 de OpenAI
+Luego utilice Flask, y Langchain para el procesamiento de lenguaje natural.
+Implemente un servidor Flask con rutas para manejar GET y POST. Utilizo Langchain para cargar informacion la cual fue extraida con selenium y construyo un sistema de recuperacion de información, luego configuro un modelo de respuesta utilizando ChatGpt-4 de OpenAI y esto finalmente completa lo requerido por parte de ustedes, responde las preguntas mencionadas en la prueba.

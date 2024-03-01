@@ -5,23 +5,29 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-opts = Options()
-opts.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.189 Safari/537.36")
+def extraer_informacion():
+    opts = Options()
+    opts.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.189 Safari/537.36")
+    opts.add_argument("--headless")
 
+    driver = webdriver.Chrome(
+        service = Service(ChromeDriverManager().install()),
+        options = opts
+    )
 
+    driver.get('https://www.promptior.ai/about')
 
-driver = webdriver.Chrome(
-    service = Service(ChromeDriverManager().install()),
-    options = opts
-)
+    sleep(3)
 
-driver.get('https://www.promptior.ai/about')
+    elemento = driver.find_element(By.XPATH, '//div[@class="text-section"]')
 
-sleep(3)
+    texto = elemento.text
 
-elemento = driver.find_element(By.XPATH, '//div[@class="text-section"]')
+    with open("informacion/informacion.txt", "w", encoding="utf-8") as f:
+        f.write(texto)
 
-texto = elemento.text
+def main():
+    extraer_informacion()
 
-with open("informacion/informacion.txt", "w", encoding="utf-8") as f:
-    f.write(texto)
+if __name__ == "__main__":
+    main()
