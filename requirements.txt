@@ -1,0 +1,7 @@
+Flask
+selenium
+Langchain
+chromadb
+OpenAI
+unstructured
+tiktoken
